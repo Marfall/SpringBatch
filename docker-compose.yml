@@ -1,0 +1,14 @@
+# make sure you have Docker installed and then run in cmd: docker-compose up -d
+version: "3"
+services:
+  batch_db:
+    image: "postgres"
+    container_name: "batch_db"
+    environment:
+      - POSTGRES_USER=batch
+      - POSTGRES_PASSWORD=batch
+      - POSTGRES_DB=batch
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/batch_db/data
